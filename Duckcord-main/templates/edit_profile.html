@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<a href="{{ url_for('home') }}" class="goose-logo">
+    <img src="{{ url_for('static', filename='duckcord.jpeg') }}" alt="Home">
+</a>
+<h2>Edit Profile</h2>
+
+<form method="POST">
+  <label>Bio:</label><br>
+  <textarea name="bio" rows="4" style="width:300px;">{{ user.bio }}</textarea><br><br>
+
+  <label>Avatar URL:</label><br>
+  <input name="avatar" value="{{ user.avatar }}" style="width:300px;"><br><br>
+
+  <button>Save</button>
+</form>
+
+<br>
+<a href="/profile/{{ user.username }}">Cancel</a>
+
+<script>
+function toggleDark() {
+    document.body.classList.toggle("dark");
+}
+</script>
+
+<button class="toggle-dark" onclick="toggleDark()">Dark Mode</button>
+
+
+</body>
+</html>
